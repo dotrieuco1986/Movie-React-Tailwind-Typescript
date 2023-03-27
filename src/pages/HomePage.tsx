@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import MovieList from '../movies/MovieList';
+import MovieListGrid from '../movies/MovieListGrid';
 
 const HomePage = () => {
   const [filter, setFilter] = useState('');
@@ -39,21 +40,25 @@ const HomePage = () => {
       </section>
       <section className='movies-layout page-container pb-10'>
         <div className='flex flex-direction-column'>
-          <h2 className='capitalize text-white mb-10 text-3xl font-bold' onClick={() => setVideoType('now_playing')}>
+          <h2 
+            className={`capitalize mb-10 text-3xl font-bold ${videoType == 'now_playing' ? "text-primary" : "text-white"}`}
+            onClick={() => setVideoType('now_playing')}>
             Now Playing
           </h2>
-          <h2 className='capitalize text-white mb-10 text-3xl font-bold ml-10' onClick={() => setVideoType('top_rated')}>
+          <h2
+            className={`capitalize mb-10 text-3xl font-bold ml-10 ${videoType != 'now_playing' ? "text-primary" : "text-white"}`}
+            onClick={() => setVideoType('top_rated')}>
             Top Rated
           </h2>
         </div>
-        <MovieList type={videoType}></MovieList>
+        <MovieList type={videoType}></MovieList>        
       </section>
       <section className='movies-layout page-container pb-10'>
-        <h2 className='capitalize text-white mb-10 text-3xl font-bold'>
-          Trending
+        <h2 className='capitalize text-primary mb-10 text-3xl font-bold'>
+          Popular
         </h2>
-        <MovieList type='popular'></MovieList>
-      </section>
+        <MovieListGrid type='popular'></MovieListGrid>
+      </section>   
     </Fragment>
   );
 };

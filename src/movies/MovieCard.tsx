@@ -4,6 +4,7 @@ import Button from '../components/button/Button';
 import { withErrorBoundary } from 'react-error-boundary';
 import LoadingSkeleton from '../components/loadingSkeleton/LoadingSkeleton';
 import Movie from '../modal/Movie';
+import ImageLoader from '../components/imageLoader/ImageLoader';
 
 interface Prop {
   data: Movie
@@ -13,11 +14,7 @@ const MovieCard  = (item:Prop ) => {
   const navigate = useNavigate();
   return (
     <div className='movie-card flex flex-col rounded-lg p-3 bg-slate-800 text-white h-full select-none'>
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${item.data.poster_path}`}
-        alt=''
-        className='w-full h-[250px] object-cover rounded-lg mb-5'
-      />
+      <ImageLoader url={`https://image.tmdb.org/t/p/w500/${item.data.poster_path}`} />
       <div className='flex flex-col flex-1'>
         <h3 className=' text-xl font-bold mb-3'>{item.data.title}</h3>
         <div className='flex items-center justify-between text-white text-sm opacity-50 mb-10'>

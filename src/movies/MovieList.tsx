@@ -5,6 +5,7 @@ import { tmdbAPI } from '../config/config';
 import MovieCard, { MovieCardSkeleton } from './MovieCard';
 import Movie from '../modal/Movie';
 import axios from 'axios';
+import Loading from '../components/loading/Loading';
 const MovieList = ({ type = 'now_playing' }) => {
 
   const [movies, setMovie] = useState([]);
@@ -24,26 +25,26 @@ const MovieList = ({ type = 'now_playing' }) => {
 
   return (
     <div className='movie-list'>
-    {loading &&  <Swiper grabCursor={true} spaceBetween={40} slidesPerView={'auto'}>
-        {/* grabCursor để bật có kéo được hay không */}
-
+      {loading &&  
+        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={'auto'}>
         {movies.length > 0 &&
           movies.map((item:Movie) => (
-            <SwiperSlide key={item.id}>
-              <MovieCardSkeleton></MovieCardSkeleton>
-            </SwiperSlide>
-          ))}
-      </Swiper> }
-      {!loading &&<Swiper grabCursor={true} spaceBetween={40} slidesPerView={'auto'}>
-        {/* grabCursor để bật có kéo được hay không */}
-
+          <SwiperSlide key={item.id}>
+            <MovieCardSkeleton></MovieCardSkeleton>
+          </SwiperSlide>
+        ))}
+        </Swiper> 
+      }
+      {!loading &&
+        <Swiper grabCursor={true} spaceBetween={40} slidesPerView={'auto'}>
         {movies.length > 0 &&
           movies.map((item:Movie) => (
-            <SwiperSlide key={item?.id}>
-              <MovieCard data={item}></MovieCard>
-            </SwiperSlide>
-          ))}
-      </Swiper>}
+          <SwiperSlide key={item?.id}>
+            <MovieCard data={item}></MovieCard>
+          </SwiperSlide>
+        ))}
+        </Swiper>
+      }
     </div>
   );
 };

@@ -50,3 +50,39 @@
     background-position-x : -200%; 
   }
 }
+
+.list-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.buttons {
+  display: flex;
+  div {
+    margin: 0px 10px;
+    color: #FFFFFA;
+    cursor: pointer;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+
+  &.list {
+    grid-template-columns: 1fr;
+  }
+
+  .col {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFA;
+  }
+}
