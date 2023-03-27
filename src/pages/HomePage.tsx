@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <Fragment>
       <section className='movies-layout page-container pb-10'>
-        <div className='flex mb-10'>
+        <div className='flex mb-5'>
           <div className='search flex-1 '>
             <input
               type='text'
@@ -41,12 +41,12 @@ const HomePage = () => {
       <section className='movies-layout page-container pb-10'>
         <div className='flex flex-direction-column'>
           <h2 
-            className={`capitalize mb-10 text-3xl font-bold ${videoType == 'now_playing' ? "text-primary" : "text-white"}`}
+            className={`capitalize mb-5 text-3xl font-bold ${videoType == 'now_playing' ? "text-primary" : "text-white"}`}
             onClick={() => setVideoType('now_playing')}>
             Now Playing
           </h2>
           <h2
-            className={`capitalize mb-10 text-3xl font-bold ml-10 ${videoType != 'now_playing' ? "text-primary" : "text-white"}`}
+            className={`capitalize mb-5 text-3xl font-bold ml-10 ${videoType != 'now_playing' ? "text-primary" : "text-white"}`}
             onClick={() => setVideoType('top_rated')}>
             Top Rated
           </h2>
@@ -54,7 +54,7 @@ const HomePage = () => {
         <MovieList type={videoType}></MovieList>        
       </section>
       <section className='movies-layout page-container pb-10'>
-        <h2 className='capitalize text-primary mb-10 text-3xl font-bold'>
+        <h2 className='capitalize text-primary mb-5 text-3xl font-bold'>
           Popular
         </h2>
         <MovieListGrid type='popular'></MovieListGrid>

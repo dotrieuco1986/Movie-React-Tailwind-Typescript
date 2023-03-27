@@ -4,6 +4,7 @@ import Loading from "../loading/Loading";
 
 const ImageLoader = (props: {
   url: string,
+  className ?: string,
 }) => {
   const [loading, setLoading] = useState<Boolean>(false);
   const [loadedUrl, setLoadedUrl] = useState<string>();
@@ -28,7 +29,7 @@ const ImageLoader = (props: {
         <img
         src={loadedUrl}
         alt=''
-        className='w-full h-[250px] object-cover rounded-lg mb-5'
+        className={props.className}
         />
       }
     </div>

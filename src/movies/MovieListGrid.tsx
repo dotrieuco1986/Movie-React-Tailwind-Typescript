@@ -6,10 +6,12 @@ import MovieCard, { MovieCardSkeleton } from './MovieCard';
 import Movie from '../modal/Movie';
 import axios from 'axios';
 import Loading from '../components/loading/Loading';
+import ListGridToggle from '../components/button/ListGirdToggle';
 const MovieListGrid = ({ type = 'now_playing' }) => {
 
   const [movies, setMovie] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [typeListGrid, setListGrid] = useState('grid');
   useEffect(() => {
     axios.get(tmdbAPI.getMovieList(type))
     .then(res => {
@@ -25,6 +27,7 @@ const MovieListGrid = ({ type = 'now_playing' }) => {
 
   const btnListView = (event: React.MouseEvent<HTMLElement>) => {
     let wrapper = document.getElementById("wrapper");
+    setListGrid('list');
     // List view
     event.preventDefault();
     wrapper?.classList.remove("list");
@@ -33,6 +36,7 @@ const MovieListGrid = ({ type = 'now_playing' }) => {
 
   const btnGridView = (event: React.MouseEvent<HTMLElement>) => {
     let wrapper = document.getElementById("wrapper");
+    setListGrid('grid');
     // Grid view
     event.preventDefault();
     wrapper?.classList.remove("list");
@@ -40,12 +44,7 @@ const MovieListGrid = ({ type = 'now_playing' }) => {
 
   return (
     <div className="list-grid-container">
-      <div className="buttons">
-        <div className="list" onClick={btnListView}>
-        ListView
-        </div>
-        <div className="grid" onClick={btnGridView}>GridView</div>
-      </div>
+      <ListGridToggle type={typeListGrid} btnGridViewClick={btnGridView} btnListViewClick={btnListView} />
       {loading &&
       <div className="wrapper" id="wrapper">
         <div className="col">

@@ -7,6 +7,7 @@ import MovieCard from "../movies/MovieCard";
 import Movie from "../modal/Movie";
 import axios from "axios";
 import MovieDetail from "../modal/MovieDetail";
+import ImageLoader from "../components/imageLoader/ImageLoader";
 const MovieDetailPage = () => {
   const { movieId } = useParams();
   const [data, setMovie] = useState<MovieDetail>({title:'', backdrop_path:'', poster_path:'', genres:[], overview:''});
@@ -46,11 +47,11 @@ const MovieDetailPage = () => {
         {data?.title}
       </h1>
       { data?.genres && data?.genres.length > 0 && (
-        <div className="flex items-center justify-center gap-x-5 mb-10">
+        <div className="flex items-center justify-center mb-10">
           {data?.genres.map((item:any) => (
             <span
               key={item.id}
-              className="py-2 px-4 border  border-primary rounded-lg text-primary"
+              className="py-2 px-4 mr-1 border  border-primary rounded-lg text-primary"
             >
               {item.name}
             </span>
@@ -93,14 +94,11 @@ const  MovieMeta = (props: Props ) => {
     return (
       <div className="py-10">
         <h2 className="text-center text-2xl mb-10 text-white">Casts</h2>
-        <div className="grid grid-cols-4 gap-5">
+        <div className="container m-auto grid grid-cols-3 md:grid-cols-4 gap-4">
           {data.slice(0, 4).map((item:any) => (
             <div className="cast-item">
-              <img
-                className="w-full h-[350px] object-cover rounded-lg"
-                src={`https://image.tmdb.org/t/p/original/${item.profile_path}`}
-                alt=""
-              />
+              <ImageLoader url={`https://image.tmdb.org/t/p/original/${item.poster_path}`} 
+                className={'w-full h-[350px] object-cover rounded-lg'} />
               <h3 className="text-center text-white text-2xl font-medium">
                 {item.name}
               </h3>

@@ -13,8 +13,9 @@ interface Prop {
 const MovieCard  = (item:Prop ) => {
   const navigate = useNavigate();
   return (
-    <div className='movie-card flex flex-col rounded-lg p-3 bg-slate-800 text-white h-full select-none'>
-      <ImageLoader url={`https://image.tmdb.org/t/p/w500/${item.data.poster_path}`} />
+    <div className='movie-card flex flex-col rounded-lg p-3 bg-slate-800 text-white h-full select-none hover:bg-primary'>
+      <ImageLoader url={`https://image.tmdb.org/t/p/w500/${item.data.poster_path}`} 
+        className={'w-full h-[250px] object-cover rounded-lg mb-5 transition-opacity duration-700 ease-in hover:opacity-50 hover:scale-110'} />
       <div className='flex flex-col flex-1'>
         <h3 className=' text-xl font-bold mb-3'>{item.data.title}</h3>
         <div className='flex items-center justify-between text-white text-sm opacity-50 mb-10'>
