@@ -5,6 +5,7 @@ import { tmdbAPI } from '../config/config';
 import MovieCard, { MovieCardSkeleton } from './MovieCard';
 import Movie from '../modal/Movie';
 import axios from 'axios';
+import { dialogRef } from "../App";
 import Loading from '../components/loading/Loading';
 const MovieList = ({ type = 'now_playing' }) => {
 
