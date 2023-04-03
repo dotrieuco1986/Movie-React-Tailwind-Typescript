@@ -35,7 +35,6 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
-      <DialogComponentClass ref={dialogRef} /> 
     </Fragment>
   );
 }

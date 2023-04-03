@@ -1,6 +1,6 @@
 const LoadingPage = () => {
   return (
-  <div className="fixed top-0 left-0 items-center block max-w-sm p-6 bg-white border border-gray-100 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700 opacity-50">
+  <div className="fixed loading-page w-100 h-100 top-0 left-0 items-center block p-6 bg-white border border-gray-100 shadow-md dark:bg-gray-800 dark:border-gray-800 dark:hover:bg-gray-700 opacity-50">
     <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white opacity-0">Loading....</h5>
     <p className="font-normal text-gray-700 dark:text-gray-400 opacity-0">Loading....</p>
     <div role="status" className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
